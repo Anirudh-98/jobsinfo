@@ -46,7 +46,7 @@ export const AnnouncementBar: React.FC = () => {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 text-center text-[12px] text-sky-200" aria-live="polite">
+        <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 text-center text-[12.5px] font-semibold text-white" aria-live="polite">
           {ANNOUNCEMENTS[index]}
         </p>
       </div>

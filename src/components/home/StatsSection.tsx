@@ -25,7 +25,7 @@ export const StatsSection: React.FC = () => (
             Platform overview · Updated daily
           </Eyebrow>
           <h2 id="stats-title" className="mt-4 text-[28px] sm:text-[40px] font-bold leading-[1.1] tracking-[-0.025em] text-ink text-balance">
-            The ecosystem, in numbers. <span className="text-primary">Growing every day.</span>
+            The Global Career, Bussiness<span className="text-primary"> & Leadership Ecosystem.</span>
           </h2>
           <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-body text-pretty">
             Live counts of the people and opportunities on Jobsinfo.world — plus the latest verified openings you can apply to right now.

@@ -13,8 +13,9 @@ import { MentorBookingModal } from "@/components/common/MentorBookingModal";
 import { ToastNotification } from "@/components/ui/ToastNotification";
 
 export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // The student dashboard is a self-contained app screen: no site navbar, banners or footer.
-  const isApp = usePathname().startsWith("/dashboard");
+  // The student and employer dashboards are self-contained app screens: no site navbar, banners or footer.
+  const pathname = usePathname();
+  const isApp = pathname.startsWith("/dashboard") || pathname.startsWith("/employer");
 
   return (
     <AppProvider>

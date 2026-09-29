@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Search, X, LogIn, GraduationCap, Building2, School } from "lucide-react";
@@ -28,9 +28,7 @@ export const Navbar: React.FC = () => {
   const { setIsSearchOpen, setIsAuthModalOpen, setAuthTab, setPersona } = useApp();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const loginRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -38,20 +36,6 @@ export const Navbar: React.FC = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!isLoginOpen) return;
-    const onClick = (e: MouseEvent) => {
-      if (!loginRef.current?.contains(e.target as Node)) setIsLoginOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsLoginOpen(false);
-    document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [isLoginOpen]);
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
@@ -64,7 +48,6 @@ export const Navbar: React.FC = () => {
     if (persona) setPersona(persona);
     setAuthTab(tab);
     setIsAuthModalOpen(true);
-    setIsLoginOpen(false);
     setIsMobileOpen(false);
   };
 
@@ -139,33 +122,22 @@ export const Navbar: React.FC = () => {
               <Search className="h-[18px] w-[18px]" />
             </button>
 
-            <div ref={loginRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setIsLoginOpen((o) => !o)}
-                aria-haspopup="menu"
-                aria-expanded={isLoginOpen}
-                className="btn-gradient inline-flex h-10 shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-5 text-[14px] font-semibold cursor-pointer sm:bg-none sm:bg-transparent sm:px-3 sm:text-ink sm:shadow-none sm:hover:text-primary"
-              >
-                Login <ChevronDown className={cn("h-4 w-4 transition-transform", isLoginOpen && "rotate-180")} aria-hidden />
-              </button>
-              {isLoginOpen && (
-                <div role="menu" className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-hairline bg-white p-2 shadow-elevated">
-                  {LOGIN_ROLES.map(({ label, persona, icon: Icon }) => (
-                    <button
-                      key={label}
-                      role="menuitem"
-                      type="button"
-                      onClick={() => openAuth("signin", persona)}
-                      className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-[14px] text-ink-light hover:bg-primary-light/60 hover:text-primary cursor-pointer"
-                    >
-                      <Icon className="h-4 w-4 text-primary" aria-hidden />
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* Role (student / employer / college) is chosen inside the sign-in modal.
+                Mobile: filled pill (Register lives in the menu). sm+: outlined pill beside the filled Register. */}
+            <button
+              type="button"
+              onClick={() => openAuth("signin")}
+              className="btn-gradient inline-flex sm:hidden h-10 shrink-0 items-center whitespace-nowrap rounded-full px-5 text-[14px] font-semibold cursor-pointer"
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              onClick={() => openAuth("signin")}
+              className="hidden sm:inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full border-[1.5px] border-primary bg-white px-5 text-[14px] font-semibold text-primary shadow-[0_8px_20px_-12px_rgba(37,99,235,0.6)] transition-colors hover:bg-primary-light cursor-pointer"
+            >
+              Login
+            </button>
 
             <button
               type="button"

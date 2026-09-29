@@ -6,7 +6,8 @@ import Image from "next/image";
 import { Search, BriefcaseBusiness, GraduationCap, Rocket, Check, ArrowRight, BadgeCheck, IndianRupee, MoreHorizontal, TrendingUp } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 import { Eyebrow } from "@/components/home/shared";
-import { HeroDashboard } from "@/components/home/HeroDashboard";
+// Temporarily hidden — restore together with the <HeroDashboard /> block below.
+// import { HeroDashboard } from "@/components/home/HeroDashboard";
 
 type HeroAction = {
   title: string;
@@ -108,7 +109,7 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[136px] pb-4 text-center">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[136px] pb-16 sm:pb-24 text-center">
         <Eyebrow className="bg-white/80">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
           Learn • Do • Earn • Lead
@@ -169,15 +170,18 @@ export const HeroSection: React.FC = () => {
         </ul>
       </div>
 
+      {/* Temporarily hidden: student dashboard preview. Uncomment (and the import above) to restore.
       <div className="relative px-4 sm:px-6 pb-12 sm:pb-16">
         <HeroDashboard />
       </div>
+      */}
 
-      {/* White fog: the dashboard's lower half blurs and dissolves into the page */}
+      {/* Temporarily hidden with the dashboard: this fog blurs the hero's bottom 320px, so without the dashboard it would cover the CTAs.
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[240px] sm:h-[320px]" aria-hidden>
         <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_bottom,transparent,black_65%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/75 to-white" />
       </div>
+      */}
     </section>
   );
 };

@@ -186,10 +186,13 @@ const AuthDialog: React.FC = () => {
       collegeOrCompany: organization || (role === "student" ? "Osmania University" : role === "educator" ? "Your college" : "Your company"),
     });
     setIsAuthModalOpen(false);
-    // Students land on their dashboard; setPersona's own toast is replaced by the welcome toast below.
+    // Students and employers land on their dashboards; setPersona's own toast is replaced by the welcome toast below.
     if (role === "student") {
       setPersona("student");
       router.push("/dashboard");
+    } else if (role === "recruiter") {
+      setPersona("employer");
+      router.push("/employer");
     }
     showToast(isSignup ? `Welcome to Jobsinfo.world, ${displayName}. Your account is ready.` : `Signed in as ${displayName}.`);
   };

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ArrowRight, Bell, Bookmark, CalendarClock, Sparkles, Video, BadgeCheck, X } from "lucide-react";
-import { JOBS_DATA } from "@/data/mockData";
+import { ALL_JOBS } from "@/data/studentData";
 import { useApp } from "@/context/AppContext";
 import { cn } from "@/lib/utils";
 
@@ -91,7 +91,7 @@ export const ProfileStrengthCard: React.FC = () => {
 
 export const SavedJobsCard: React.FC = () => {
   const { savedJobIds, toggleSaveJob, setSelectedJobForModal, setIsQuickApplyOpen } = useApp();
-  const saved = JOBS_DATA.filter((j) => savedJobIds.includes(j.id));
+  const saved = ALL_JOBS.filter((j) => savedJobIds.includes(j.id));
 
   return (
     <section className="card-soft p-4 sm:p-5" aria-labelledby="saved-title">

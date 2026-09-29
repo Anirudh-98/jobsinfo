@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from "react";
 import { ArrowRight, Bookmark, BriefcaseBusiness, Check, Clock, LayoutGrid, MapPin, Search, SearchX, Users } from "lucide-react";
 import { JOBS_DATA, Job } from "@/data/mockData";
+import { ALL_JOBS } from "@/data/studentData";
 import { useApp } from "@/context/AppContext";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { cn } from "@/lib/utils";
@@ -10,9 +11,7 @@ import { cn } from "@/lib/utils";
 const area = (location: string) => location.split(",")[0].trim();
 const unique = (values: string[]) => Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
 
-const CATEGORIES = unique(JOBS_DATA.map((j) => j.category));
-const LOCATIONS = unique(JOBS_DATA.map((j) => area(j.location)));
-const EXPERIENCE = unique(JOBS_DATA.map((j) => j.experience));
+
 
 const initials = (name: string) =>
   name
@@ -26,10 +25,14 @@ type Props = {
   /** Show only bookmarked jobs (the "Saved jobs" view). */
   savedOnly?: boolean;
   initialQuery?: string;
+  /** Jobs to browse; defaults to all regular job openings. Saved view always looks across jobs and internships. */
+  source?: Job[];
+  /** Intro line above the filters. */
+  intro?: string;
 };
 
 // Full job browser inside the dashboard: search, filters, save and apply without leaving the page.
-export const DashboardJobsView: React.FC<Props> = ({ savedOnly = false, initialQuery = "" }) => {
+export const DashboardJobsView: React.FC<Props> = ({ savedOnly = false, initialQuery = "", source = JOBS_DATA, intro }) => {
   const { savedJobIds, toggleSaveJob, applications, setSelectedJobForModal, setIsQuickApplyOpen } = useApp();
   const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState("");
@@ -37,7 +40,10 @@ export const DashboardJobsView: React.FC<Props> = ({ savedOnly = false, initialQ
   const [experience, setExperience] = useState("");
 
   const appliedIds = useMemo(() => new Set(applications.map((a) => a.jobId)), [applications]);
-  const base = savedOnly ? JOBS_DATA.filter((j) => savedJobIds.includes(j.id)) : JOBS_DATA;
+  const base = savedOnly ? ALL_JOBS.filter((j) => savedJobIds.includes(j.id)) : source;
+  const CATEGORIES = unique(base.map((j) => j.category));
+  const LOCATIONS = unique(base.map((j) => area(j.location)));
+  const EXPERIENCE = unique(base.map((j) => j.experience));
   const q = query.trim().toLowerCase();
   const jobs = base.filter(
     (j) =>
@@ -66,7 +72,7 @@ export const DashboardJobsView: React.FC<Props> = ({ savedOnly = false, initialQ
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="text-[13.5px] text-body">
-              {savedOnly ? "Jobs you bookmarked — apply when you're ready." : "Verified openings from employers hiring right now."}
+              {intro ?? (savedOnly ? "Jobs and internships you bookmarked — apply when you're ready." : "Verified openings from employers hiring right now.")}
             </p>
           </div>
           <p className="text-[12.5px] text-body" aria-live="polite">
@@ -110,7 +116,7 @@ export const DashboardJobsView: React.FC<Props> = ({ savedOnly = false, initialQ
           </p>
           {savedOnly && !filtered ? (
             <a href="#jobs" className="btn-gradient mt-5 inline-flex min-h-[38px] items-center gap-1 rounded-full px-5 text-[13px] font-semibold">
-              Find jobs <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+              Search jobs <ArrowRight className="h-3.5 w-3.5" aria-hidden />
             </a>
           ) : (
             <button type="button" onClick={reset} className="btn-soft mt-5 inline-flex min-h-[36px] items-center rounded-full px-4 text-[12.5px] font-semibold cursor-pointer">

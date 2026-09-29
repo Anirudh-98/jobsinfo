@@ -15,6 +15,13 @@ import { AlertsCard, ProfileStrengthCard, SavedJobsCard } from "@/components/das
 import { DashboardJobsView } from "@/components/dashboard/DashboardJobsView";
 import { CoursesView, MasterclassesView, MentorsView } from "@/components/dashboard/DashboardLearningViews";
 import { DashboardProfileView } from "@/components/dashboard/DashboardProfileView";
+import { StudentProvider, useStudent } from "@/components/dashboard/StudentStore";
+import { JobAlertsView } from "@/components/dashboard/JobAlertsView";
+import { MessagesView } from "@/components/dashboard/MessagesView";
+import { ResumeBuilderView } from "@/components/dashboard/ResumeBuilderView";
+import { LiveProjectsView, NotificationsView, StudentInterviewsView } from "@/components/dashboard/StudentActivityViews";
+import { INTERNSHIPS } from "@/data/studentData";
+import { JOBS_DATA } from "@/data/mockData";
 
 const pctChange = (now: number, before: number) => (before ? Math.round(((now - before) / before) * 100) : 0);
 
@@ -36,14 +43,16 @@ const STATS: Stat[] = [
 // Anchors inside the overview (e.g. #upcoming) show the overview and scroll to that card.
 const OVERVIEW_ANCHORS = ["upcoming"];
 
-export default function DashboardPage() {
+// Internships view: dedicated internship listings plus any regular job posted as an internship.
+const INTERNSHIP_LIST = [...INTERNSHIPS, ...JOBS_DATA.filter((j) => j.type === "Internship")];
+
+const StudentDashboard: React.FC = () => {
   const { user, setPersona, showToast } = useApp();
+  const { unreadCount, enrolledCourses, enrollCourse, registeredClasses, registerClass } = useStudent();
   const router = useRouter();
   const [view, setView] = useState<ViewId>("overview");
   const [jobSearch, setJobSearch] = useState({ query: "", key: 0 });
   const [topQuery, setTopQuery] = useState("");
-  const [enrolledCourses, setEnrolledCourses] = useState<string[]>(["course-1"]);
-  const [registeredClasses, setRegisteredClasses] = useState<string[]>([]);
 
   const firstName = user.name.split(" ")[0];
   const initials = user.name
@@ -131,12 +140,16 @@ export default function DashboardPage() {
                   </label>
                 </form>
                 <a
-                  href="#upcoming"
-                  aria-label="Upcoming alerts"
+                  href="#notifications"
+                  aria-label={`Notifications${unreadCount ? `, ${unreadCount} unread` : ""}`}
                   className="relative grid h-11 w-11 place-items-center rounded-full border border-hairline bg-white text-body transition-colors hover:text-primary"
                 >
                   <Bell className="h-4 w-4" aria-hidden />
-                  <span className="absolute right-3 top-3 h-2 w-2 rounded-full border-2 border-white bg-orange-500" />
+                  {unreadCount > 0 && (
+                    <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white bg-orange-500 px-1 text-[10px] font-bold text-white" aria-hidden>
+                      {unreadCount}
+                    </span>
+                  )}
                 </a>
                 <a
                   href="#profile"
@@ -182,15 +195,20 @@ export default function DashboardPage() {
                   </div>
                 )}
                 {view === "jobs" && <DashboardJobsView key={jobSearch.key} initialQuery={jobSearch.query} />}
+                {view === "internships" && (
+                  <DashboardJobsView key="internships" source={INTERNSHIP_LIST} intro="Paid internships with a certificate and a chance at a pre-placement offer." />
+                )}
+                {view === "projects" && <LiveProjectsView />}
+                {view === "saved" && <DashboardJobsView key="saved" savedOnly />}
+                {view === "alerts" && <JobAlertsView />}
                 {view === "applications" && <ApplicationPipeline />}
-                {view === "saved" && <DashboardJobsView savedOnly />}
-                {view === "courses" && (
-                  <CoursesView enrolled={enrolledCourses} onEnroll={(id) => setEnrolledCourses((c) => [...c, id])} />
-                )}
+                {view === "interviews" && <StudentInterviewsView />}
+                {view === "messages" && <MessagesView />}
+                {view === "courses" && <CoursesView enrolled={enrolledCourses} onEnroll={enrollCourse} />}
                 {view === "mentors" && <MentorsView />}
-                {view === "masterclasses" && (
-                  <MasterclassesView registered={registeredClasses} onRegister={(id) => setRegisteredClasses((r) => [...r, id])} />
-                )}
+                {view === "masterclasses" && <MasterclassesView registered={registeredClasses} onRegister={registerClass} />}
+                {view === "notifications" && <NotificationsView />}
+                {view === "resume" && <ResumeBuilderView />}
                 {view === "profile" && <DashboardProfileView />}
               </div>
             </div>
@@ -198,5 +216,13 @@ export default function DashboardPage() {
         </div>
       </div>
     </div>
+  );
+};
+
+export default function DashboardPage() {
+  return (
+    <StudentProvider>
+      <StudentDashboard />
+    </StudentProvider>
   );
 }

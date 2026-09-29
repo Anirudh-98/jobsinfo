@@ -344,3 +344,10 @@ body {
   .marquee-pause { overflow-x: auto; }
   html { scroll-behavior: auto; }
 }
+
+/* Resume builder: "Download PDF" prints only the live preview */
+@media print {
+  body * { visibility: hidden; }
+  #resume-print, #resume-print * { visibility: visible; }
+  #resume-print { position: absolute; left: 0; top: 0; width: 100%; border: 0; border-radius: 0; box-shadow: none; }
+}

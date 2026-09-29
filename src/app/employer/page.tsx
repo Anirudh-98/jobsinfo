@@ -89,7 +89,7 @@ const EmployerDashboard: React.FC = () => {
                   </a>
                 )}
                 <a href="#settings" className="flex items-center gap-2.5 rounded-full border border-hairline bg-white py-1 pl-1 pr-1 transition-colors hover:border-primary/40 sm:pr-4">
-                  <Avatar name={recruiter.name} size="sm" />
+                  <Avatar name={recruiter.name} size="sm" src={recruiter.photo} />
                   <span className="hidden leading-tight sm:block">
                     <span className="block text-[13px] font-semibold text-ink">{recruiter.name}</span>
                     <span className="block max-w-[180px] truncate text-[11.5px] text-body">{company.name}</span>

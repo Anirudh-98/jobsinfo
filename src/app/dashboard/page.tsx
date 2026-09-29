@@ -21,6 +21,7 @@ import { MessagesView } from "@/components/dashboard/MessagesView";
 import { ResumeBuilderView } from "@/components/dashboard/ResumeBuilderView";
 import { LiveProjectsView, NotificationsView, StudentInterviewsView } from "@/components/dashboard/StudentActivityViews";
 import { INTERNSHIPS } from "@/data/studentData";
+import { Avatar } from "@/components/employer/ui";
 import { JOBS_DATA } from "@/data/mockData";
 
 const pctChange = (now: number, before: number) => (before ? Math.round(((now - before) / before) * 100) : 0);
@@ -55,11 +56,6 @@ const StudentDashboard: React.FC = () => {
   const [topQuery, setTopQuery] = useState("");
 
   const firstName = user.name.split(" ")[0];
-  const initials = user.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2);
 
   // Every section lives in this page; the URL hash picks which one is shown, so Back/Forward work.
   useEffect(() => {
@@ -155,9 +151,7 @@ const StudentDashboard: React.FC = () => {
                   href="#profile"
                   className="flex items-center gap-2.5 rounded-full border border-hairline bg-white py-1 pl-1 pr-1 transition-colors hover:border-primary/40 sm:pr-4"
                 >
-                  <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-primary to-sky-400 text-[12px] font-bold text-white">
-                    {initials}
-                  </span>
+                  <Avatar name={user.name} size="sm" src={user.photo} />
                   <span className="hidden leading-tight sm:block">
                     <span className="block text-[13px] font-semibold text-ink">{user.name}</span>
                     <span className="block max-w-[180px] truncate text-[11.5px] text-body">{user.qualification}</span>

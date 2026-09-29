@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useId, useRef } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { Stage } from "@/data/employerData";
 import { cn } from "@/lib/utils";
@@ -13,17 +14,26 @@ export const initials = (name: string) =>
     .join("")
     .toUpperCase();
 
-export const Avatar: React.FC<{ name: string; size?: "sm" | "md" | "lg" }> = ({ name, size = "md" }) => (
+const AVATAR_PX = { sm: 36, md: 40, lg: 56 } as const;
+
+/** Round profile avatar: the photo when one is set, otherwise initials on a blue gradient. Decorative (name is shown beside it). */
+export const Avatar: React.FC<{ name: string; size?: "sm" | "md" | "lg"; src?: string }> = ({ name, size = "md", src }) => (
   <span
     className={cn(
-      "grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-sky-400 font-bold text-white",
-      size === "sm" && "h-8 w-8 text-[11px]",
+      "relative grid shrink-0 place-items-center overflow-hidden rounded-full bg-gradient-to-br from-primary to-sky-400 font-bold text-white",
+      size === "sm" && "h-9 w-9 text-[11px]",
       size === "md" && "h-10 w-10 text-[12px]",
-      size === "lg" && "h-14 w-14 text-[16px]"
+      size === "lg" && "h-14 w-14 text-[16px]",
+      src && "ring-2 ring-white"
     )}
     aria-hidden
   >
-    {initials(name)}
+    {src ? (
+      // Expects a square, face-centred crop (see public/generated/blue/avatars).
+      <Image src={src} alt="" fill sizes={`${AVATAR_PX[size] * 2}px`} className="object-cover" />
+    ) : (
+      initials(name)
+    )}
   </span>
 );
 

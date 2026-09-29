@@ -124,6 +124,7 @@ export const RECRUITER = {
   email: "priya.s@darwinbox.in",
   phone: "+91 90000 12345",
   role: "Talent Acquisition Lead",
+  photo: "/generated/blue/avatars/testimonial-woman-2.webp",
 };
 
 export const COMPANY = {

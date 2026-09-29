@@ -33,6 +33,8 @@ export interface UserProfile {
   profileCompletion: number;
   resumeUploaded: boolean;
   skills: string[];
+  /** Profile photo shown in the student dashboard. */
+  photo?: string;
 }
 
 interface AppContextType {
@@ -110,6 +112,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     qualification: "MBA Finance & Systems (2026)",
     city: "Hyderabad, Telangana",
     profileCompletion: 85,
+    photo: "/generated/blue/avatars/testimonial-man-1.webp",
     resumeUploaded: true,
     skills: ["Financial Analysis", "SQL", "Product Roadmapping", "Business Development"]
   });

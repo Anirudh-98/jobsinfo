@@ -108,7 +108,7 @@ const StudentDashboard: React.FC = () => {
                 <div className="min-w-0 flex-1">
                   <p className="text-[13px] font-bold tracking-tight text-ink">
                     Jobsinfo<span className="text-primary">.world</span>
-                    <span className="font-medium text-muted"> · Student</span>
+                    <span className="font-medium text-muted"> · {user.program ? `${user.program} student` : "Student"}</span>
                   </p>
                   <h1 className="mt-1 truncate text-[22px] font-bold tracking-[-0.02em] text-ink sm:text-[26px]">
                     {view === "overview" ? (

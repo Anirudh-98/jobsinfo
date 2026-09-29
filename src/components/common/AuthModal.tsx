@@ -2,6 +2,7 @@
 
 import React, { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Lock,
@@ -308,7 +309,29 @@ const AuthDialog: React.FC = () => {
               ))}
             </div>
 
-            <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
+            {/* Highlighted: MBA / BBA students have their own portal */}
+            <Link
+              href={isSignup ? "/mba-bba/register" : "/mba-bba/login"}
+              onClick={close}
+              className="group relative mt-5 flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-[#0b1f4d] via-[#1d4ed8] to-[#2563eb] px-4 py-3.5 text-left text-white shadow-[0_16px_32px_-16px_rgba(37,99,235,0.9)] ring-1 ring-white/10 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 animate-soft-pulse"
+            >
+              <span className="pointer-events-none absolute -right-8 -top-10 h-28 w-28 rounded-full bg-sky-400/30 blur-2xl" aria-hidden />
+              <span className="relative grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/15 ring-1 ring-white/25">
+                <GraduationCap className="h-5 w-5" aria-hidden />
+              </span>
+              <span className="relative min-w-0 flex-1">
+                <span className="flex items-center gap-2">
+                  <span className="text-[14.5px] font-bold">MBA / BBA {isSignup ? "Registration" : "Login"}</span>
+                  <span className="rounded-full bg-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#0b1f4d]">New</span>
+                </span>
+                <span className="mt-0.5 block text-[12px] text-white/80">Dedicated portal for campus internships &amp; placements</span>
+              </span>
+              <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-primary transition-transform group-hover:translate-x-0.5">
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </span>
+            </Link>
+
+            <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-4">
               <fieldset>
                 <legend className="mb-2 text-[13px] font-medium text-ink-light">{isSignup ? "I'm joining as" : "Signing in as"}</legend>
                 <div className="grid grid-cols-3 gap-2">

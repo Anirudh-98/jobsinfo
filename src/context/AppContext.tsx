@@ -35,6 +35,8 @@ export interface UserProfile {
   skills: string[];
   /** Profile photo shown in the student dashboard. */
   photo?: string;
+  /** Set when the student signs in through the MBA / BBA portal. */
+  program?: "MBA" | "BBA";
 }
 
 interface AppContextType {

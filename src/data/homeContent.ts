@@ -23,6 +23,7 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/#journeys",
     children: [
       { label: "Join as Student", href: "/#journeys" },
+      { label: "MBA / BBA Login", href: "/mba-bba/login" },
       { label: "Real-Time Projects", href: "/projects" },
       { label: "Learning Resources", href: "/courses" },
     ],
@@ -72,16 +73,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Mentorship", href: "/mentors" },
     ],
   },
-  {
-    label: "About",
-    href: "/about",
-    children: [
-      { label: "Our Mission", href: "/about#our-mission" },
-      { label: "Team", href: "/about" },
-      { label: "Impact Stories", href: "/#stories" },
-      { label: "Newsroom", href: "/about" },
-    ],
-  },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 

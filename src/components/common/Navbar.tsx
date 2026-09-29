@@ -63,7 +63,8 @@ export const Navbar: React.FC = () => {
         Skip to content
       </a>
       <AnnouncementBar />
-      <header className={cn("sticky top-0 z-40 w-full px-3 sm:px-5 py-2", pathname === "/" && "-mb-[72px]")}>
+      {/* Pages with a full-bleed hero let it run up under the floating navbar (no white strip) */}
+      <header className={cn("sticky top-0 z-40 w-full px-3 sm:px-5 py-2", (pathname === "/" || pathname === "/about") && "-mb-[72px]")}>
         <div
           className={cn(
             "max-w-[1320px] mx-auto h-14 pl-5 pr-2 sm:pl-6 flex items-center justify-between gap-3 rounded-full border transition-all duration-300",
@@ -252,6 +253,13 @@ export const Navbar: React.FC = () => {
             >
               <LogIn className="h-4 w-4" aria-hidden /> Register — it&apos;s free
             </button>
+            <Link
+              href="/mba-bba/login"
+              onClick={() => setIsMobileOpen(false)}
+              className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-hairline text-[14px] font-semibold text-ink-light hover:border-primary hover:text-primary"
+            >
+              <GraduationCap className="h-4 w-4 text-primary" aria-hidden /> MBA / BBA student? Sign in here
+            </Link>
           </div>
         </div>
       </div>

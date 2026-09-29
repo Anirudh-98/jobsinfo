@@ -30,7 +30,7 @@ export const PhilosophySection: React.FC<Props> = ({ variant = "full", id }) => 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-2xl">
-            <Eyebrow>{full ? "Our mission" : "How it works"}</Eyebrow>
+            <Eyebrow>{full ? "Our philosophy" : "How it works"}</Eyebrow>
             <h2 id="philosophy-title" className="mt-4 text-[28px] sm:text-[40px] font-bold leading-[1.1] tracking-[-0.025em] text-ink text-balance">
               Learn, do, earn, lead — <span className="text-primary">one path, four stages.</span>
             </h2>

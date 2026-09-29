@@ -51,7 +51,7 @@ const FieldError: React.FC<{ id: string; msg?: string }> = ({ id, msg }) =>
 // Photo, headline and proof point shown beside the form for each role
 const ROLE_PANEL: Record<Role, { image: string; title: string; accent: string; stat: string; statLabel: string }> = {
   student: {
-    image: "/images/auth/student.webp",
+    image: "/images/auth/student-2.webp",
     title: "Your first job starts",
     accent: "right here.",
     stat: "1,586 new jobs today",

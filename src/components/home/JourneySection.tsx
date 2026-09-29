@@ -129,7 +129,7 @@ export const JourneySection: React.FC = () => {
                   <div className="flex-1 pt-1">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <h4 className="text-[16px] font-semibold text-ink">{step.title}</h4>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-surface-strong px-2 py-0.5 text-[11.5px] font-medium text-body opacity-100 lg:opacity-0 transition-opacity group-hover:opacity-100">
+                      <span className="hidden lg:inline-flex items-center gap-1 rounded-full bg-surface-strong px-2 py-0.5 text-[11.5px] font-medium text-body opacity-0 transition-opacity group-hover:opacity-100">
                         <Clock className="h-3 w-3" aria-hidden /> Step {i + 1} of {journey.steps.length}
                       </span>
                     </div>

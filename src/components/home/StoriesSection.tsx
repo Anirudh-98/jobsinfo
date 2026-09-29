@@ -45,12 +45,15 @@ export const StoriesSection: React.FC = () => (
                   </span>
                 )}
                 <div className="min-w-0">
-                  <h3 className="truncate text-[16px] font-semibold text-ink">{s.name}</h3>
-                  <p className="flex items-center gap-1 text-[13px] text-body">
-                    {s.role} · <MapPin className="h-3 w-3" aria-hidden /> {s.location}
+                  <h3 className="text-[16px] font-semibold leading-snug text-ink text-balance">{s.name}</h3>
+                  <p className="flex flex-wrap items-center gap-x-1 text-[13px] text-body">
+                    <span className="whitespace-nowrap">{s.role} ·</span>
+                    <span className="inline-flex items-center gap-1 whitespace-nowrap">
+                      <MapPin className="h-3 w-3" aria-hidden /> {s.location}
+                    </span>
                   </p>
                 </div>
-                <span className="ml-auto self-start rounded-full bg-primary-light px-2.5 py-1 text-[11px] font-semibold text-primary">{s.type}</span>
+                <span className="ml-auto shrink-0 self-start whitespace-nowrap rounded-full bg-primary-light px-2.5 py-1 text-[11px] font-semibold text-primary">{s.type}</span>
               </div>
 
               <div className="mt-6 rounded-2xl bg-surface-soft p-4">

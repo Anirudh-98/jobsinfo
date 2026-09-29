@@ -132,7 +132,7 @@ export const LatestJobsTable: React.FC = () => {
       </form>
 
       {/* Only the results clip to the card corners, so open dropdowns can overflow it */}
-      <div className="overflow-hidden rounded-b-[inherit]">
+      <div className="relative overflow-hidden rounded-b-[inherit]">
         {jobs.length === 0 && (
           <div className="px-6 py-14 text-center">
             <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-primary-light text-primary">
@@ -146,8 +146,8 @@ export const LatestJobsTable: React.FC = () => {
           </div>
         )}
 
-        {/* Desktop / tablet table */}
-        <table className={`${jobs.length ? "md:table" : ""} hidden w-full text-left`}>
+        {/* Desktop table (7 columns need ≥1280px) */}
+        <table className={`${jobs.length ? "xl:table" : ""} hidden w-full text-left`}>
           <thead>
             <tr className="bg-surface-soft/60">
               {COLUMNS.map((c, i) => (
@@ -202,10 +202,10 @@ export const LatestJobsTable: React.FC = () => {
           </tbody>
         </table>
 
-        {/* Mobile: stacked rows */}
-        <ul className={`${jobs.length ? "" : "hidden"} divide-y divide-hairline md:hidden`}>
+        {/* Mobile & tablet: stacked rows */}
+        <ul className={`${jobs.length ? "" : "hidden"} divide-y divide-hairline md:grid md:grid-cols-2 md:divide-y-0 xl:hidden`}>
           {jobs.map((job) => (
-            <li key={job.id} className="px-5 py-4">
+            <li key={job.id} className="px-5 py-4 md:border-b md:border-hairline md:odd:border-r md:[&:nth-last-child(-n+2)]:border-b-0">
               <div className="flex items-start gap-3">
                 {renderMark(job.company)}
                 <div className="min-w-0 flex-1">

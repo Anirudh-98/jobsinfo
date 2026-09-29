@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
 
       {/* Floating proof cards — decorative, desktop only */}
-      <div className="pointer-events-none absolute left-[4%] top-[190px] hidden lg:block animate-float" aria-hidden>
+      <div className="pointer-events-none absolute left-[3%] top-[190px] hidden min-[1400px]:block animate-float" aria-hidden>
         <div className="-rotate-6 rounded-2xl border border-white bg-white/90 p-3.5 shadow-elevated backdrop-blur w-[200px]">
           <div className="flex items-center gap-2 text-[12px] font-semibold text-ink">
             <span className="grid h-7 w-7 place-items-center rounded-lg bg-primary-light text-primary">
@@ -78,7 +78,7 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="pointer-events-none absolute right-[4%] top-[220px] hidden lg:block animate-float [animation-delay:1.5s]" aria-hidden>
+      <div className="pointer-events-none absolute right-[3%] top-[220px] hidden min-[1400px]:block animate-float [animation-delay:1.5s]" aria-hidden>
         <div className="rotate-6 w-[236px] rounded-[20px] border border-white bg-white/95 p-4 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_48px_-24px_rgba(30,64,175,0.45)] backdrop-blur">
           <div className="flex items-center gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-600">

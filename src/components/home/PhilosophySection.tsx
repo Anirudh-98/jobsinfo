@@ -30,9 +30,9 @@ export const PhilosophySection: React.FC = () => (
       </div>
 
       <Reveal className="mt-12">
-        <ol className="card-soft relative grid overflow-hidden lg:grid-cols-4">
+        <ol className="card-soft relative grid overflow-hidden md:grid-cols-2 xl:grid-cols-4">
           {/* Progress rail across the top of the panel (desktop) */}
-          <span className="pointer-events-none absolute inset-x-0 top-[52px] hidden h-px bg-gradient-to-r from-primary/60 via-sky-400/50 to-primary/15 lg:block" aria-hidden />
+          <span className="pointer-events-none absolute inset-x-0 top-[52px] hidden h-px bg-gradient-to-r from-primary/60 via-sky-400/50 to-primary/15 xl:block" aria-hidden />
 
           {PILLARS.map((p, i) => {
             const Icon = ICONS[p.key];
@@ -41,7 +41,10 @@ export const PhilosophySection: React.FC = () => (
                 key={p.key}
                 className={cn(
                   "group relative flex flex-col p-6 sm:p-8 transition-colors duration-300 hover:bg-[#f7faff]",
-                  i > 0 && "border-t border-hairline lg:border-t-0 lg:border-l"
+                  i > 0 && "border-t border-hairline",
+                  i % 2 === 1 && "md:border-l",
+                  i === 1 && "md:border-t-0",
+                  i > 0 && "xl:border-t-0 xl:border-l"
                 )}
               >
                 <div className="flex items-center gap-3">
@@ -54,7 +57,7 @@ export const PhilosophySection: React.FC = () => (
                 </div>
 
                 <h3 className="mt-7 text-[26px] font-bold tracking-[-0.02em] text-ink">{p.title}</h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-body text-pretty lg:min-h-[6rem]">{p.desc}</p>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-body text-pretty xl:min-h-[6rem]">{p.desc}</p>
 
                 <ol className="mt-6 space-y-3.5">
                   {p.steps.map(([title, detail], k) => (

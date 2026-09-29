@@ -124,10 +124,10 @@ export const Footer: React.FC = () => {
 
       {/* Oversized faded wordmark, echoing the reference layout */}
       <p
-        className="pointer-events-none select-none text-center font-bold leading-[0.8] tracking-[-0.05em] text-transparent bg-clip-text bg-gradient-to-b from-primary/15 to-primary/0 text-[22vw] lg:text-[240px] mt-10"
+        className="pointer-events-none select-none text-center font-bold leading-[0.8] tracking-[-0.05em] text-transparent bg-clip-text bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100/40 text-[min(12.5vw,200px)] whitespace-nowrap mt-10"
         aria-hidden
       >
-        Jobsinfo
+        Jobsinfo.world
       </p>
 
       <div className="relative border-t border-hairline bg-white/70 backdrop-blur">

@@ -53,9 +53,9 @@ export const TrustBadgesSection: React.FC = () => (
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <h3 className="flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+                    <h3 className="text-[15px] font-semibold leading-snug text-ink">
                       {b.title}
-                      <BadgeCheck className="h-4 w-4 text-primary" aria-hidden />
+                      <BadgeCheck className="ml-1.5 inline-block h-4 w-4 -translate-y-px align-middle text-primary" aria-hidden />
                     </h3>
                     <p className="mt-1 text-[13.5px] leading-relaxed text-body">{b.text}</p>
                   </div>

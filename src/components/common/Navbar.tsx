@@ -139,13 +139,13 @@ export const Navbar: React.FC = () => {
               <Search className="h-[18px] w-[18px]" />
             </button>
 
-            <div ref={loginRef} className="relative hidden sm:block">
+            <div ref={loginRef} className="relative">
               <button
                 type="button"
                 onClick={() => setIsLoginOpen((o) => !o)}
                 aria-haspopup="menu"
                 aria-expanded={isLoginOpen}
-                className="inline-flex h-10 items-center gap-1 rounded-full px-3 text-[14px] font-semibold text-ink hover:text-primary transition-colors cursor-pointer"
+                className="btn-gradient inline-flex h-10 shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-5 text-[14px] font-semibold cursor-pointer sm:bg-none sm:bg-transparent sm:px-3 sm:text-ink sm:shadow-none sm:hover:text-primary"
               >
                 Login <ChevronDown className={cn("h-4 w-4 transition-transform", isLoginOpen && "rotate-180")} aria-hidden />
               </button>
@@ -170,7 +170,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => openAuth("signup")}
-              className="btn-gradient inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full px-5 text-[14px] font-semibold cursor-pointer"
+              className="btn-gradient hidden sm:inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full px-5 text-[14px] font-semibold cursor-pointer"
             >
               Register
             </button>

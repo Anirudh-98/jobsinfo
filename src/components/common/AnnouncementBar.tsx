@@ -27,8 +27,8 @@ export const AnnouncementBar: React.FC = () => {
           <span className="text-white/60">1.2K watching ·</span> Expert Session: Career Opportunities in Emerging
           Industries with <span className="font-semibold text-white">Dr. Ravi Kumar</span>
         </p>
-        <p className="md:hidden truncate text-white/85" aria-live="polite">
-          {ANNOUNCEMENTS[index]}
+        <p className="hidden min-[400px]:block md:hidden min-w-0 truncate text-white/85">
+          Expert session · <span className="font-semibold text-white">Dr. Ravi Kumar</span>
         </p>
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <Link
@@ -45,7 +45,7 @@ export const AnnouncementBar: React.FC = () => {
           </Link>
         </div>
       </div>
-      <div className="hidden md:block border-t border-white/10">
+      <div className="border-t border-white/10">
         <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 text-center text-[12px] text-sky-200" aria-live="polite">
           {ANNOUNCEMENTS[index]}
         </p>

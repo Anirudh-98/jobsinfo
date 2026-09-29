@@ -17,12 +17,12 @@ export default function HomePage() {
     <div className="w-full bg-canvas text-ink">
       <HeroSection />
       <StatsSection />
+      <PhilosophySection />
       <ProblemSolutionSection />
       <JourneySection />
       <FeaturesSection />
       <AppShowcaseSection />
       <StoriesSection />
-      <PhilosophySection />
       <TrustBadgesSection />
       <ActivityTicker />
       <RoleCtaSection />

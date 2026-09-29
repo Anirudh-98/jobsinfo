@@ -93,7 +93,7 @@ export default function DashboardPage() {
       <div className="relative px-2 pt-2 sm:px-3 sm:pt-3">
         <div className="flex min-h-[calc(100dvh-1.25rem)] flex-col rounded-[28px] border border-white/80 bg-white/55 p-1.5 shadow-[0_40px_80px_-40px_rgba(30,64,175,0.45)] backdrop-blur-xl sm:p-2">
           <div className="flex flex-1 rounded-[22px] bg-[#f7f9fd]/90">
-            <div className="hidden border-r border-hairline/70 md:block">
+            <div className="hidden border-r border-hairline/70 lg:block">
               <DashboardSidebar active={view} onSignOut={signOut} />
             </div>
 

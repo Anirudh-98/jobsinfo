@@ -8,7 +8,8 @@ import { EmployerProvider, useEmployer } from "@/components/employer/EmployerSto
 import { EMPLOYER_VIEWS, EmployerMobileNav, EmployerSidebar, EmployerViewId, isEmployerView } from "@/components/employer/EmployerNav";
 import { OverviewView } from "@/components/employer/OverviewView";
 import { JobsView } from "@/components/employer/JobsView";
-import { HiredView, InterviewsView, OfferedView, RepositoryView, ShortlistedView } from "@/components/employer/CandidateViews";
+import { HiredView, InterviewsView, OfferedView, ShortlistedView } from "@/components/employer/CandidateViews";
+import { RepositoryView } from "@/components/employer/RepositoryView";
 import { ReportsView } from "@/components/employer/ReportsView";
 import { AccountSettingsView, CompanyProfileView, SupportView } from "@/components/employer/SettingsViews";
 import { Avatar } from "@/components/employer/ui";

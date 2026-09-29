@@ -81,8 +81,43 @@ export const CANDIDATES: Candidate[] = [
   { id: "c-14", name: "Rohit Vangapalli", headline: "MBA Finance & Systems · analyst", location: "Hyderabad", experienceYears: 0, education: "MBA Finance & Systems, Osmania University (2026)", skills: ["Financial Analysis", "SQL", "Product Roadmapping", "Business Development"], expectedCtc: "₹8 LPA", noticePeriod: "Immediate", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 86 },
   { id: "c-15", name: "Meghana Pillai", headline: "Marketing associate · social media", location: "Bengaluru", experienceYears: 1, education: "BMS, Christ University (2025)", skills: ["Social Media", "Canva", "Copywriting", "Meta Ads"], expectedCtc: "₹4 LPA", noticePeriod: "15 days", source: "LinkedIn", jobId: null, stage: "applied", appliedOn: "—", match: 78 },
   { id: "c-16", name: "Karthik Chenna", headline: "Data engineer · Spark, Airflow", location: "Hyderabad", experienceYears: 4, education: "M.Tech, University of Hyderabad (2022)", skills: ["Spark", "Airflow", "Python", "SQL"], expectedCtc: "₹18 LPA", noticePeriod: "90 days", source: "Referral", jobId: null, stage: "applied", appliedOn: "—", match: 75 },
+  { id: "c-18", name: "Ramesh Yadav", headline: "Office assistant · data entry & filing", location: "Hyderabad", experienceYears: 2, education: "SSC (10th), ZPHS Medchal (2019)", skills: ["Data Entry", "Filing", "MS Office", "Telugu & Hindi"], expectedCtc: "₹1.8 LPA", noticePeriod: "Immediate", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 72 },
+  { id: "c-19", name: "Swathi Goud", headline: "Front desk executive · customer care", location: "Secunderabad", experienceYears: 1, education: "SSC (10th), Govt. Girls High School (2021)", skills: ["Reception", "Customer Care", "Scheduling", "English"], expectedCtc: "₹2 LPA", noticePeriod: "15 days", source: "Campus drive", jobId: null, stage: "applied", appliedOn: "—", match: 74 },
+  { id: "c-20", name: "Praveen Kumar", headline: "Sales trainee · field sales", location: "Hyderabad", experienceYears: 1, education: "Intermediate (12th) MPC, Sri Chaitanya (2023)", skills: ["Field Sales", "Lead Generation", "Negotiation", "Two-wheeler licence"], expectedCtc: "₹2.6 LPA", noticePeriod: "Immediate", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 77 },
+  { id: "c-21", name: "Bhavani Reddy", headline: "Telecaller · inside sales", location: "Kukatpally, Hyderabad", experienceYears: 0, education: "Intermediate (12th) CEC, Narayana Junior College (2025)", skills: ["Telecalling", "CRM", "Communication", "Follow-ups"], expectedCtc: "₹2.2 LPA", noticePeriod: "Immediate", source: "Referral", jobId: null, stage: "applied", appliedOn: "—", match: 79 },
+  { id: "c-22", name: "Srinivas Naik", headline: "Electrician · industrial wiring", location: "Patancheru", experienceYears: 3, education: "ITI Electrician, Govt. ITI Mallepally (2022)", skills: ["Industrial Wiring", "Panel Maintenance", "Safety", "PLC Basics"], expectedCtc: "₹3 LPA", noticePeriod: "30 days", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 81 },
+  { id: "c-23", name: "Imran Pasha", headline: "Fitter · CNC operations", location: "Jeedimetla", experienceYears: 2, education: "ITI Fitter, Govt. ITI Shantinagar (2023)", skills: ["CNC", "Fitting", "Measuring Tools", "Quality Checks"], expectedCtc: "₹2.8 LPA", noticePeriod: "15 days", source: "Campus drive", jobId: null, stage: "applied", appliedOn: "—", match: 76 },
+  { id: "c-24", name: "Anil Kumar", headline: "Junior site engineer · civil", location: "Hyderabad", experienceYears: 2, education: "Diploma in Civil Engineering, Govt. Polytechnic Masab Tank (2023)", skills: ["AutoCAD", "Site Supervision", "Estimation", "BOQ"], expectedCtc: "₹3.5 LPA", noticePeriod: "30 days", source: "LinkedIn", jobId: null, stage: "applied", appliedOn: "—", match: 80 },
+  { id: "c-25", name: "Sravani Devi", headline: "Hardware & network technician", location: "Hitec City, Hyderabad", experienceYears: 1, education: "Diploma in Computer Engineering, JNGP Ramanthapur (2024)", skills: ["Networking", "Hardware", "Windows Admin", "Troubleshooting"], expectedCtc: "₹3 LPA", noticePeriod: "Immediate", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 83 },
+  { id: "c-26", name: "Lakshmi Prasanna", headline: "Content writer · English & Telugu", location: "Hyderabad", experienceYears: 1, education: "B.A. English Literature, Osmania University (2025)", skills: ["Content Writing", "Editing", "SEO Basics", "Translation"], expectedCtc: "₹3.2 LPA", noticePeriod: "Immediate", source: "Jobsinfo.world", jobId: null, stage: "applied", appliedOn: "—", match: 82 },
+  { id: "c-27", name: "Suresh Babu", headline: "HR assistant · employee records", location: "Warangal", experienceYears: 2, education: "B.A. Economics, Kakatiya University (2023)", skills: ["HR Records", "Excel", "Payroll Support", "Communication"], expectedCtc: "₹3 LPA", noticePeriod: "30 days", source: "Referral", jobId: null, stage: "applied", appliedOn: "—", match: 78 },
+  { id: "c-28", name: "Nikhil Rao", headline: "Lab analyst · quality control", location: "Genome Valley, Hyderabad", experienceYears: 1, education: "M.Sc Chemistry, University of Hyderabad (2025)", skills: ["HPLC", "QC Testing", "Documentation", "GMP"], expectedCtc: "₹4.5 LPA", noticePeriod: "Immediate", source: "LinkedIn", jobId: null, stage: "applied", appliedOn: "—", match: 79 },
   { id: "c-17", name: "Lavanya Devi", headline: "Recruitment coordinator", location: "Hyderabad", experienceYears: 1, education: "BBA, Osmania University (2025)", skills: ["Scheduling", "Sourcing", "Excel", "Communication"], expectedCtc: "₹3.4 LPA", noticePeriod: "Immediate", source: "Campus drive", jobId: "ej-1", stage: "rejected", appliedOn: "13 Sep 2026", match: 70 },
 ];
+
+/**
+ * CV repository folders, in display order. A candidate goes into the first group whose pattern matches
+ * their education; anything unmatched (e.g. B.Des) lands in "Other".
+ */
+export const EDUCATION_GROUPS = [
+  { id: "ssc", title: "10th / SSC", subtitle: "Secondary school", match: /\b(SSC|10th)\b/i },
+  { id: "inter", title: "12th / Intermediate", subtitle: "Higher secondary", match: /\b(Intermediate|12th|HSC)\b/i },
+  { id: "iti", title: "ITI", subtitle: "Industrial training", match: /\bITI\b/i },
+  { id: "diploma", title: "Diploma", subtitle: "Polytechnic", match: /\bDiploma\b/i },
+  { id: "ba", title: "B.A", subtitle: "Bachelor of Arts", match: /\bB\.A\b/i },
+  { id: "bcom", title: "B.Com", subtitle: "Bachelor of Commerce", match: /\bB\.Com\b/i },
+  { id: "bsc", title: "B.Sc", subtitle: "Bachelor of Science", match: /\bB\.Sc\b/i },
+  { id: "btech", title: "B.Tech / B.E", subtitle: "Engineering", match: /\b(B\.Tech|B\.E)\b/i },
+  { id: "bba", title: "BBA / BMS", subtitle: "Business studies", match: /\b(BBA|BMS)\b/i },
+  { id: "mba", title: "MBA", subtitle: "Post-graduate management", match: /\bMBA\b/i },
+  { id: "pg", title: "M.Tech / M.Sc", subtitle: "Post-graduate", match: /\b(M\.Tech|M\.Sc|M\.E|MCA|M\.Com|M\.A)\b/i },
+  { id: "other", title: "Other", subtitle: "All other qualifications", match: /.*/ },
+] as const;
+
+export type EducationGroupId = (typeof EDUCATION_GROUPS)[number]["id"];
+
+export const educationGroup = (c: Pick<Candidate, "education">): EducationGroupId =>
+  EDUCATION_GROUPS.find((g) => g.match.test(c.education))!.id;
 
 export const RECRUITER = {
   name: "Priya Sharma",

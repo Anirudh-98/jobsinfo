@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { AppProvider } from "@/context/AppContext";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
@@ -12,12 +13,15 @@ import { MentorBookingModal } from "@/components/common/MentorBookingModal";
 import { ToastNotification } from "@/components/ui/ToastNotification";
 
 export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // The student dashboard is a self-contained app screen: no site navbar, banners or footer.
+  const isApp = usePathname().startsWith("/dashboard");
+
   return (
     <AppProvider>
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        {!isApp && <Navbar />}
         <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
+        {!isApp && <Footer />}
         <GlobalSearchModal />
         <AuthModal />
         <JobDetailModal />

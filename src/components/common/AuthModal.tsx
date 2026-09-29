@@ -2,6 +2,7 @@
 
 import React, { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   Lock,
   Mail,
@@ -80,7 +81,8 @@ export const AuthModal: React.FC = () => {
 };
 
 const AuthDialog: React.FC = () => {
-  const { setIsAuthModalOpen, authTab, setAuthTab, updateUser, showToast, persona } = useApp();
+  const { setIsAuthModalOpen, authTab, setAuthTab, updateUser, showToast, persona, setPersona } = useApp();
+  const router = useRouter();
   const isSignup = authTab === "signup";
 
   const [role, setRole] = useState<Role>(() => personaToRole(persona));
@@ -184,6 +186,11 @@ const AuthDialog: React.FC = () => {
       collegeOrCompany: organization || (role === "student" ? "Osmania University" : role === "educator" ? "Your college" : "Your company"),
     });
     setIsAuthModalOpen(false);
+    // Students land on their dashboard; setPersona's own toast is replaced by the welcome toast below.
+    if (role === "student") {
+      setPersona("student");
+      router.push("/dashboard");
+    }
     showToast(isSignup ? `Welcome to Jobsinfo.world, ${displayName}. Your account is ready.` : `Signed in as ${displayName}.`);
   };
 

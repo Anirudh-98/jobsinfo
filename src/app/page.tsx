@@ -17,7 +17,7 @@ export default function HomePage() {
     <div className="w-full bg-canvas text-ink">
       <HeroSection />
       <StatsSection />
-      <PhilosophySection />
+      <PhilosophySection variant="compact" />
       <ProblemSolutionSection />
       <JourneySection />
       <FeaturesSection />

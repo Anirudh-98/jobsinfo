@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck, Users, Sparkles, Target } from "lucide-react";
 import { PageHeaderBand } from "@/components/common/PageHeaderBand";
 import { Button } from "@/components/ui/Button";
+import { PhilosophySection } from "@/components/home/PhilosophySection";
 
 const VALUES = [
   {
@@ -62,6 +63,9 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* Our mission: the full Learn → Do → Earn → Lead journey (linked from the homepage) */}
+      <PhilosophySection variant="full" id="our-mission" />
 
       {/* Impact stats */}
       <div className="bg-surface-soft border-y border-hairline py-14 sm:py-16">

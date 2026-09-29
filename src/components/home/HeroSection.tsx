@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Search, BriefcaseBusiness, GraduationCap, Rocket, Check, ArrowRight, BadgeCheck, IndianRupee, MoreHorizontal, TrendingUp } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 import { Eyebrow } from "@/components/home/shared";
-import { HeroVideo } from "@/components/home/HeroVideo";
+import { HeroDashboard } from "@/components/home/HeroDashboard";
 
 type HeroAction = {
   title: string;
@@ -170,7 +170,13 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <div className="relative px-4 sm:px-6 pb-12 sm:pb-16">
-        <HeroVideo />
+        <HeroDashboard />
+      </div>
+
+      {/* White fog: the dashboard's lower half blurs and dissolves into the page */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[240px] sm:h-[320px]" aria-hidden>
+        <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_bottom,transparent,black_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/75 to-white" />
       </div>
     </section>
   );

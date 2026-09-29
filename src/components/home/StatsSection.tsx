@@ -5,6 +5,7 @@ import { Users, FileText, Building2, Target, Info } from "lucide-react";
 import { STATS } from "@/data/homeContent";
 import { CountUp, Reveal, Eyebrow } from "@/components/home/shared";
 import { LatestJobsTable } from "@/components/home/LatestJobsTable";
+import { IntroVideo } from "@/components/home/IntroVideo";
 
 const ICONS: Record<(typeof STATS)[number]["key"], React.ElementType> = {
   seekers: Users,
@@ -16,7 +17,8 @@ const ICONS: Record<(typeof STATS)[number]["key"], React.ElementType> = {
 export const StatsSection: React.FC = () => (
   <section className="pt-16 sm:pt-20 pb-4" aria-labelledby="stats-title">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+      {/* Title + intro on the left, small intro video in the top-right corner */}
+      <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
         <div className="max-w-2xl">
           <Eyebrow>
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden />
@@ -25,10 +27,11 @@ export const StatsSection: React.FC = () => (
           <h2 id="stats-title" className="mt-4 text-[28px] sm:text-[40px] font-bold leading-[1.1] tracking-[-0.025em] text-ink text-balance">
             The ecosystem, in numbers. <span className="text-primary">Growing every day.</span>
           </h2>
+          <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-body text-pretty">
+            Live counts of the people and opportunities on Jobsinfo.world — plus the latest verified openings you can apply to right now.
+          </p>
         </div>
-        <p className="max-w-[44ch] text-[15px] leading-relaxed text-body text-pretty lg:pb-1.5">
-          Live counts of the people and opportunities on Jobsinfo.world — plus the latest verified openings you can apply to right now.
-        </p>
+        <IntroVideo className="max-w-[340px] lg:w-[300px]" />
       </div>
 
       <Reveal className="mt-12">

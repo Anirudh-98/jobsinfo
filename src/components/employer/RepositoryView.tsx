@@ -14,12 +14,12 @@ import { cn } from "@/lib/utils";
 const EXPERIENCE_BANDS = ["Fresher", "1–2 yrs", "3+ yrs"];
 const inBand = (y: number, band: string) => (band === "Fresher" ? y === 0 : band === "1–2 yrs" ? y >= 1 && y <= 2 : y >= 3);
 // White & blue folders: brand-blue cover behind a frosted white folder front, matching the site theme.
-const BLUE_COVER =
+export const BLUE_COVER =
   "radial-gradient(70% 90% at 78% 115%, rgba(191,219,254,.85) 0%, rgba(147,197,253,.35) 40%, rgba(0,0,0,0) 72%), linear-gradient(165deg, #1e40af 0%, #2563eb 55%, #3b82f6 100%)";
 // FolderCard ships `dark:` tokens (black panel) that win when the OS is in dark mode, so every token is
 // set for both schemes. The panel is slightly translucent so the blue cover frosts through where they overlap.
 // Written out in full (not generated) so Tailwind can see every class.
-const FOLDER_TOKENS = [
+export const FOLDER_TOKENS = [
   "[--folder-card-bezel:rgba(255,255,255,0.72)] dark:[--folder-card-bezel:rgba(255,255,255,0.72)]",
   "[--folder-card-surface:#ffffff] dark:[--folder-card-surface:#ffffff]",
   "[--folder-card-panel-from:rgba(255,255,255,0.9)] dark:[--folder-card-panel-from:rgba(255,255,255,0.9)]",

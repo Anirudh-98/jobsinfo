@@ -15,7 +15,7 @@ import { ToastNotification } from "@/components/ui/ToastNotification";
 export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Dashboards and the MBA/BBA sign-in pages are self-contained screens: no site navbar, banners or footer.
   const pathname = usePathname();
-  const isApp = ["/dashboard", "/employer", "/mba-bba"].some((p) => pathname.startsWith(p));
+  const isApp = ["/dashboard", "/employer", "/mba-bba", "/mbadashboard"].some((p) => pathname.startsWith(p));
 
   return (
     <AppProvider>

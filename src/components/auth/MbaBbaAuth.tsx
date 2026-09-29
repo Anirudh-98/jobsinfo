@@ -162,7 +162,7 @@ export const MbaBbaAuth: React.FC<{ mode: Mode }> = ({ mode }) => {
       program,
     });
     setPersona("mba-placement");
-    router.push("/dashboard");
+    router.push("/mbadashboard");
     showToast(isRegister ? `Welcome, ${displayName}! Your ${program} profile is ready.` : `Signed in as ${displayName} (${program}).`);
   };
 
